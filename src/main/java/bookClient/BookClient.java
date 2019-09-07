@@ -7,7 +7,6 @@ import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
-import org.apache.thrift.transport.TTransportException;
 
 public class BookClient {
 
@@ -23,6 +22,7 @@ public class BookClient {
         book.author = "Cal Newport";
         book.price = 9.7;
         book.totalPages = 314;
-        bookClient.saveBook(book);
+        Book savedBook = bookClient.saveBook(book);
+        System.out.println("Book is created successfully: " +  savedBook.toString());
     }
 }
